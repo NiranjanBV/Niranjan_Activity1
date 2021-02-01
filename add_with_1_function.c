@@ -1,4 +1,7 @@
 //Write a program to add two user input numbers using one function.
+#include <stdio.h> 
+int add(int a , int b);
+
 int main()
 {
     int a , b, c;
@@ -16,3 +19,4 @@ int add(int a , int b)
     sum = a + b;
     return sum ;
 }
+
