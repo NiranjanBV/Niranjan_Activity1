@@ -1,22 +1,21 @@
 //Write a program to add two user input numbers using one function.
 #include <stdio.h> 
-int add(int a , int b);
+float add(float a , float b);
 
 int main()
 {
-    int a , b, c;
+    float a , b, c;
     printf("enter 1st number");
-   scanf(" %d",&a);
+   scanf(" %f",&a);
    printf("enter 2nd number");
-   scanf("%d",&b);
+   scanf("%f",&b);
    c = add(a,b);
-   printf(" Sum of %dand%d is %d",a,b,c);
+   printf(" Sum of %f and %f is %f",a,b,c);
    return 0;
 }
-int add(int a , int b)
+float add(float a , float b)
 {
-    int sum;
+    float sum;
     sum = a + b;
     return sum ;
 }
-
