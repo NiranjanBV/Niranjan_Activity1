@@ -14,9 +14,5 @@ int main ()
 
 float vol (float h,float d, float b)
 {
-  float form1 = h * b * d;
-  float form2 = d / b;
-  float form3 = form1 + form2;
-  float form4 = form3 / 3;
-  return form4;
+ return (0.333)*((h*d*b)+(d/b));
 }
