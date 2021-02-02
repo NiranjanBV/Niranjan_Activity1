@@ -1,32 +1,33 @@
 //Write a program to add two user input numbers using 4 functions.
-#include <stdio.h> 
-float 1st_num(float a ) ;
-float 2nd_num(float b);
-float sum(a,b)
+#include<stdio.h>
+int number1();
+int number2();
+int sum(float,float);
 
-int main()
+void main()
 {
+    float a = number1();
+    float b = number2();
+    float c = sum(a,b);
+    printf("The sum of %f and %f is:- %f",a,b,c);
+}
+int number1()
+{
+    float x;
+    printf("Enter first number:-");
+    scanf("%f",&x);
+    return x;
+}
 
-add = sum(a,b)
-printf("the sum is %d",add);
-return 0;
+int number2()
+{
+    float y;
+    printf("Enter second number:-");
+    scanf("%f",&y);
+    return y;
 }
-float 1st_num() ;
+int sum(float p, float q)
 {
-float a;
-printf("enter first number");
-scanf("%d",&a);
-return a;
-}
-float 1st_num() ;
-{
-float b;
-printf("enter second number");
-scanf("%d",&b);
-return b;
-float sum(a,b);
-{
-float result;
-result = a + b;
-return result ;
+    float f = p+q;
+    return f;
 }
