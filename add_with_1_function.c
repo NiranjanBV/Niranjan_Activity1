@@ -1,6 +1,5 @@
 //Write a program to add two user input numbers using one function.
 #include <stdio.h> 
-float add(float a , float b);
 
 int main()
 {
@@ -12,4 +11,3 @@ int main()
    c = a + b;
    printf(" Sum of %f and %f is %f",a,b,c);
 }
-
