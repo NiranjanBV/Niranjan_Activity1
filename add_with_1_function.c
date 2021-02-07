@@ -10,4 +10,5 @@ int main()
    scanf("%f",&b);
    c = a + b;
    printf(" Sum of %f and %f is %f",a,b,c);
+   return 0
 }
