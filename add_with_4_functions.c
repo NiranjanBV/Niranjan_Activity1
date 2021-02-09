@@ -19,7 +19,7 @@ float input()
 float output(float x, float y, float z)
 {
     printf("The sum of %f and %f is %f",x,y,z);
-    return 0;
+    return 0.0;
 }
 
 int main()
