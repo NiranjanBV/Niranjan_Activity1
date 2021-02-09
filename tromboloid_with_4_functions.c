@@ -24,11 +24,11 @@ float volume(float h, float b, float d)
 int main()
 {
   float h,b,d,v;
-  printf("Height(h) ?\n");
+  printf("Enter the Height(h) of the tromboloid ?\n");
   h = input();
-  printf("Breadth(b) ?\n");
+  printf("Enter the Breadth(b) of the tromboloid?\n");
   b = input();
-  printf("Depth(d) ?\n");
+  printf("Enter theDepth(d) of the tromboloid ?\n");
   d = input();
   v=volume(h,b,d);
   output(v);
