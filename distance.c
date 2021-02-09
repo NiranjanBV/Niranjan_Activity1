@@ -9,19 +9,15 @@ float distance(float x1, float x2, float y1, float y2)
     distance = sqrt((x1 - y1) * (x1 - y1) + (x2 - y2) * (x2 - y2));
     return distance;
 }
-float first_coordinate() 
+float input() 
 {
-    float  a, b;
+    float  a,b,c,d;
     printf("\nEnter The Coordinates of Point A:\n");
     printf("\nX - Axis Coordinate: \t");
     scanf("%f", &a);
     printf("\nY - Axis Coordinate: \t");
     scanf("%f", &b);    
-}
-float second_coordinate() 
-{
-    float  c, d;
-    printf("\nEnter The Coordinates of Point A:\n");
+    printf("\nEnter The Coordinates of Point b:\n");
     printf("\nX - Axis Coordinate: \t");
     scanf("%f", &c);
     printf("\nY - Axis Coordinate: \t");
