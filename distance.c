@@ -32,16 +32,7 @@ float result ;
 int main()
 {
     float result, a, b, c, d;
-    printf("\nEnter The Coordinates of Point A:\n");
-    printf("\nX - Axis Coordinate: \t");
-    scanf("%f", &a);
-    printf("\nY - Axis Coordinate: \t");
-    scanf("%f", &b);    
-    printf("\nEnter The Coordinates of Point B:\n");
-    printf("\nY - Axis Coordinate:\t");
-    scanf("%f", &c);
-    printf("\nY - Axis Coordinate: \t");
-    scanf("%f", &d);
+    input();
     result = distance(a, b, c, d);
     output(result);
     return 0;
