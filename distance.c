@@ -18,13 +18,14 @@ void output(float x1,float x2,float y1,float y2,float distance)
     printf("Distance between (%f,%f) and (%f,%f) points is %f ",x1,y1,x2,y2,distance);
     
 }
-int main(){
+int main()
+{
     float x1,y1,x2,y2,res;
     printf("\nEnter The Coordinates of Point A:\n");
     x1=input('x',1);
-    x2=input('y',1);
+    y1=input('y',1);
      printf("\nEnter The Coordinates of Point B:\n");
-    y1=input('x',2);
+    x2=input('x',2);
     y2=input('y',2);
     res=distance(x2,x1,y2,y1);
     output(x1,x2,y1,y2,res);
