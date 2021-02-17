@@ -1,33 +1,43 @@
 //WAP to find the distance between two points using structures and 4 functions.
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+#include<stdio.h>
+#include<math.h>
 
-struct Points 
+struct S1 
 {
     float x, y;
 };
- 
-float distance(struct Points P, struct Points Q)
+typedef struct S1 Point;
+
+Point input()
 {
-    float res ;
-    res = sqrt((P.x - P.y) * (P.x - P.y) + (Q.x - Q.y) * (Q.x - Q.y));
-    return res ;
+    Point P;
+    printf("Enter the value of x coordinate: ");
+    scanf("%f", &P.x);
+    printf("Enter the value of y coordinate: ");
+    scanf("%f", &P.y); 
+    return P;
+} 
+
+float Distance(Point P ,Point Q)
+{
+    float distance;
+    distance = sqrt((P.x - Q.x) * (P.x - Q.x) + (P.y-Q.y) *(P.y-Q.y));
+    return distance;
 }
- 
+void output(Point P,Point Q,float distance)
+{
+  printf("\nDistance between Points P and Q is %f\n",Distance(P,Q));  
+}
 int main()
 {
-    struct Points P, Q;
+    Point P,Q;
+    float R;
+    R = Distance(P,Q);
     printf("\nEnter The Coordinates of Point P:\n");
-    printf("\nX - Axis Coordinate: \t");
-    scanf("%f", &P.x);
-    printf("\nY - Axis Coordinate: \t");
-    scanf("%f", &P.y);  
-    printf("\nEnter The Coordinates of Point Q:\n");
-    printf("\nY - Axis Coordinate:\t");
-    scanf("%f", &Q.x);
-    printf("\nY - Axis Coordinate: \t");
-    scanf("%f", &Q.y);
-    printf("\nDistance between Points P and Q is %f\n", distance(P,Q));
+    P = input();
+     printf("\nEnter The Coordinates of Point Q:\n");
+    Q = input();
+    output(P,Q,R);
+    
     return 0;
 }
