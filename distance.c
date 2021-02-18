@@ -21,10 +21,8 @@ void output(float x1,float x2,float y1,float y2,float distance)
 int main()
 {
     float x1,y1,x2,y2,res;
-    printf("\nEnter The Coordinates of Point A:\n");
     x1=input('x',1);
     y1=input('y',1);
-     printf("\nEnter The Coordinates of Point B:\n");
     x2=input('x',2);
     y2=input('y',2);
     res=distance(x2,x1,y2,y1);
