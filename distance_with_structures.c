@@ -8,12 +8,12 @@ struct S1
 };
 typedef struct S1 Point;
 
-Point input()
+Point input(int n)
 {
     Point P;
-    printf("Enter the value of x coordinate: ");
+    printf("Enter the value of x%d coordinate: ",n);
     scanf("%f", &P.x);
-    printf("Enter the value of y coordinate: ");
+    printf("Enter the value of y%d coordinate: ",n);
     scanf("%f", &P.y); 
     return P;
 } 
@@ -33,10 +33,8 @@ int main()
     Point P,Q;
     float R;
     R = Distance(P,Q);
-    printf("\nEnter The Coordinates of Point P:\n");
-    P = input();
-     printf("\nEnter The Coordinates of Point Q:\n");
-    Q = input();
+    P = input(1);
+    Q = input(2);
     output(P,Q,R);
     
     return 0;
