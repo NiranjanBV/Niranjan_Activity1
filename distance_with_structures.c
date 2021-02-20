@@ -26,16 +26,18 @@ float Distance(Point P ,Point Q)
 }
 void output(Point P,Point Q,float distance)
 {
-  printf("\nDistance between Points P and Q is %f\n",Distance(P,Q));  
+    printf("Distance between point ( %f %f) and point ( %f %f) is  %f\n",P.x,P.y,Q.x,Q.y,distance); 
+    return ;
 }
 int main()
 {
     Point P,Q;
-    float R;
-    R = Distance(P,Q);
+    float R ; 
     P = input(1);
     Q = input(2);
+    R = Distance(P,Q);
     output(P,Q,R);
     
     return 0;
 }
+
