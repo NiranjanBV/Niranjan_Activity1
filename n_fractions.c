@@ -1,46 +1,52 @@
 //WAP to find the sum of n fractions.
 #include <stdio.h>
-struct fractions
-{ 
-  int num,denom;
-};
-int num_of_frac()
+struct fraction{
+    int numerator[100];
+    int denominator[100];
+}frac;
+void answer(int n, int numer[],int denom[])
 {
-  int n;
-  printf("enter the number of fractions");
-  scanf("%d",&n);
-return n;
-}
-int input_frac(n)
-{
-  struct fractions frac[n];
-  for( i = 1 ; i <= n ; i++)
-   {
-      printf("enter numerator for fraction %d",i);
-      scanf("%d",&frac[i].num);
-      printf("enter denominator for fraction %d",i);
-      scanf("%d",&frac[i].denom);
+    int result_num = 0;
+    int result_denom = lcm(denom, n);
+    for (int i = 0; i < n; i++) {
+        result_num = result_num+ (numer[i]) * (result_denom/ denom[i]);
     }
-addition(frac[n])
+    int gcd = GCD(result_num,result_denom);
+ 
+    result_num =result_num/ gcd;
+    result_denom = result_denom/gcd;
+    printf("The answer is %d/%d", result_num,result_denom);
 }
-lcm = LCM(frac[n]);
-void sum(struct fractions frac[n] )
+int lcm(int array[], int n)
 {
-for(i = 1 ; i <= n ; i++)
-{
-frac[i].denom = lcm;
-frac[i].num = frac[i].num * lcm / frac[i].denom;
+    int x = array[0];
+    for (int i = 1; i < n; i++) {
+        x = ((array[i] * x)/ GCD(array[i], x));
+    }
+    return x;
 }
-result(frac[n])
-}
-void result(struct frac[n])
+int GCD(int a, int b)
 {
-printf("the sum of %d fractions is %d/%d",frac[i].num,frac[i].denom);
+    if (b == 0) 
+    {
+        return a;
+    }
+ 
+    return GCD(b, a % b);
 }
 int main()
 {
-  int n = num_of_frac();
-  input_frac()
-  sum()
-  result()
+    int n;
+    printf("Enter number of fractions: ");
+    scanf("%d", &n);
+    int numer[n],denom[n];
+    for(int i=0;i<n;i++)
+    {
+        printf("Enter numerator of %d fraction",(i+1));
+        scanf("%d", &frac.numerator[i]);
+        printf("Enter denominator of %d fraction",(i+1));
+        scanf("%d", &frac.denominator[i]);
+    }
+    answer(n, frac.numerator, frac.denominator);
+    return 0;
 }
