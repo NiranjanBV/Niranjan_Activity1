@@ -1,44 +1,49 @@
-//WAP to find the sum of two fractions.
-#include <stdio.h>
-#include <math.h>
-struct fraction
-{
-    int x1, y1, x2, y2;
-};
-void addition(struct fraction f)
-{
-    int num, denom, i, gcd, x, y;
-    num = (f.x1 * f.y2) + (f.x2 * f.y1);
-    denom = (f.y1 * f.y2);
-    for(i=1; i<=num && i<=denom; ++i)
-    {
-        if(num % i == 0 && denom % i == 0)
-        {
-            gcd = i;
-        }
+#include<stdio.h>
+
+typedef struct {
+    int num;
+    int den;
+}
+fraction;
+
+fraction input(int n) {
+    fraction u;
+    printf("Enter the value of the numerator %d:\n", n);
+    scanf("%d", & u.num);
+    printf("Enter the value of the denominator %d:\n", n);
+    scanf("%d", & u.den);
+    return u;
+}
+
+int gcd(int a, int b) {
+    while (a!=b){
+        if(a>b)
+        a=a-b;
+        else 
+        b=b-a;
     }
-    x = num/gcd;
-    y = denom/gcd;
-    if(y==1)
-        printf("The fraction sum is: %d/%d = %d", x, y, x);
-    else
-        printf("The fraction sum is: %d/%d", num/gcd, denom/gcd);
+    return a;
 }
-void input()
-{
-    struct fraction f1;
-    printf("Enter the numerator for 1st number: ");
-    scanf("%d", &f1.x1);
-    printf("Enter the denominator for 1st number: ");
-    scanf("%d", &f1.y1);
-    printf("Enter the numerator for 2nd number: ");
-    scanf("%d", &f1.x2);
-    printf("Enter the denominator for 2nd number: ");
-    scanf("%d", &f1.y2);
-    addition(f1);
+
+fraction answer(fraction first, fraction second) {
+    fraction third;
+    third.den = (first.den * second.den) ;
+    third.num = (first.num) * (second.den) + (second.num) * (first.den);
+    int common_factor = gcd(third.num, third.den);
+    third.den = third.den / common_factor;
+    third.num = third.num / common_factor;
+    return third;
 }
-int main()
-{
-    input();
+void output(fraction first, fraction second, fraction third) {
+    printf("Addition of fraction (%d/%d) and (%d/%d) is (%d/%d) \n", first.num, first.den, second.num, second.den, third.num, third.den);
+
+}
+
+int main() {
+    fraction first, second, sum;
+    first = input(1);
+    second = input(2);
+    sum = answer(first, second);
+    output(first, second, sum);
     return 0;
 }
