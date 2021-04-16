@@ -1,52 +1,86 @@
 //WAP to find the sum of n fractions.
-#include <stdio.h>
-struct fraction{
-    int numerator[100];
-    int denominator[100];
-}frac;
-void answer(int n, int numer[],int denom[])
+#include<stdio.h>
+struct fract
 {
-    int result_num = 0;
-    int result_denom = lcm(denom, n);
-    for (int i = 0; i < n; i++) {
-        result_num = result_num+ (numer[i]) * (result_denom/ denom[i]);
-    }
-    int gcd = GCD(result_num,result_denom);
- 
-    result_num =result_num/ gcd;
-    result_denom = result_denom/gcd;
-    printf("The answer is %d/%d", result_num,result_denom);
+int num,den;
+};
+typedef struct fract fraction;
+int gcd(int a, int b)
+{
+if (b != 0)
+return gcd(b, a % b);
+else
+return a;
 }
-int lcm(int array[], int n)
+int lcm(fraction frac[],int n)
 {
-    int x = array[0];
-    for (int i = 1; i < n; i++) {
-        x = ((array[i] * x)/ GCD(array[i], x));
-    }
-    return x;
+int ans = frac[0].den;
+for(int i=1;i<n;i++)
+{
+ans = (((frac[i].den * ans))/(gcd(frac[i].den,ans)));
 }
-int GCD(int a, int b)
+return ans;
+}
+fraction input_one(fraction frac)
 {
-    if (b == 0) 
-    {
-        return a;
-    }
- 
-    return GCD(b, a % b);
+printf("\n enter the fraction: ");
+scanf("%d %d",&frac.num,&frac.den);
+return frac;
+}
+fraction compute_two(fraction frac1, fraction frac2)
+{
+fraction temp;
+int lcm_den =(frac1.den,frac2.den);
+temp.num = (frac1.num * (gcd(frac1.num,lcm_den)))+(frac2.num * (gcd(frac2.num,lcm_den)));
+temp.den = lcm_den;
+return temp;
+}
+fraction display_one(fraction frac)
+{
+printf("\n Sum of two fractions is: %d / %d \n",frac.num,frac.den);
+}
+fraction input_n(fraction fracs[] , int n)
+{
+for(int i=0;i<n;i++)
+{
+fracs[i]=input_one(fracs[i]);
+}
+return fracs[n];
+}
+fraction compute_n(fraction fracs[],int n)
+{
+fraction temp;
+int num_temp,reduced_den;
+temp.den = lcm(fracs,n);
+temp.num = 0;
+for(int i=0;i<n;i++)
+{
+num_temp = gcd(fracs[i].den,temp.den);
+if(temp.den == fracs[i].den)
+{
+temp.num += fracs[i].num * 1;
+}
+else
+{
+temp.num += fracs[i].num * num_temp;
+}
+}
+return temp;
+}
+int display_res(fraction final_frac)
+{
+printf("\n Sum of n fractions is : %d / %d \n",final_frac.num,final_frac.den);
+return 0;
 }
 int main()
 {
-    int n;
-    printf("Enter number of fractions: ");
-    scanf("%d", &n);
-    int numer[n],denom[n];
-    for(int i=0;i<n;i++)
-    {
-        printf("Enter numerator of %d fraction",(i+1));
-        scanf("%d", &frac.numerator[i]);
-        printf("Enter denominator of %d fraction",(i+1));
-        scanf("%d", &frac.denominator[i]);
-    }
-    answer(n, frac.numerator, frac.denominator);
-    return 0;
+int n;
+printf("\n Enter the number of fraction: ");
+scanf("%d",&n);
+fraction fracs[n];
+fracs[n] = input_n(fracs,n);
+fraction final_frac;
+final_frac = compute_n(fracs,n);
+display_res(final_frac);
+return 0;
 }
